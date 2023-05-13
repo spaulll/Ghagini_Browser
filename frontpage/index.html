@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghajini Browser</title>
+    <style>
+        :root {
+            --primary-light: #d4b969;
+            --primary: #6d5dfc;
+            --white: #FFFFFF;
+            --greyLight-1: #818993;
+            --greyLight-2: #646875;
+            --greyLight-3: #474b55;
+            --greyDark: #282b33;
+          }
+        
+          /* * {
+            outline-style: auto;
+            outline-color: antiquewhite;
+          } */
+        
+          body {
+            /*background-color: var(--primary-light);*/
+            margin: 0;
+            padding: 0;
+            background-image: url('bg.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position-x: center;
+            background-position-y: top;
+            overflow: hidden;
+          }
+
+          .title {
+            text-align: center;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: xx-large;
+            color: rgb(255, 255, 255);
+          }
+          .title h3{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(204, 150, 150);
+            position: relative;
+            left: 40px;
+          }
+        
+          /*  SEARCH  */
+          .search {
+            text-align: center;
+            margin-top: 10%;
+            position: relative;
+            left: 40px;
+          }
+          .search__input {
+            width: 20.4rem;
+            height: 4rem;
+            border: none;
+            border-radius: 2rem;
+            font-size: 1.4rem;
+            padding-left: 3.8rem;
+            box-shadow: inset 0.2rem 0.2rem 0.5rem var(--greyLight-2), inset -0.2rem -0.2rem 0.5rem var(--white);
+            background: rgba(245, 245, 245, 0.5);
+            font-family: inherit;
+            color: var(--greyDark);
+          }
+          .search__input::-moz-placeholder {
+            color: var(--greyLight-3);
+          }
+          .search__input:-ms-input-placeholder {
+            color: var(--greyLight-3);
+          }
+          .search__input::placeholder {
+            color: var(--greyLight-3);
+          }
+          .search__input:focus {
+            outline: none;
+            box-shadow: 0.3rem 0.3rem 0.6rem var(--greyLight-2), -0.2rem -0.2rem 0.5rem var(--white);
+          }
+          .search__input:focus {
+            color: black;
+            
+          }
+          .search button {
+            position: relative;
+            background-color: #4c68af; /* Set the background color of the button */
+            border: none; /* Remove the border of the button */
+            color: white; /* Set the text color of the button */
+            cursor: pointer; /* Set the cursor style when hovering over the button */
+            padding: 10px 20px; /* Set the padding of the button */
+            border-radius: 60px; /* Make the corners rounded */
+            text-align: center;
+            top: 60px;
+            left: -240px;
+          }
+          
+          .search button:hover {
+            background-color: #513e8e; /* Set the background color of the button when hovering over it */
+          }
+          
+        
+          /* Animation */
+        
+          .waves_wrap {
+            padding: 0;
+            margin: 0;
+          }
+        
+          .waves {
+            /* display: block; */
+            position:absolute;
+            width: 100%;
+            height:100%;
+            bottom: 0%;
+            margin-bottom:-7px; /*Fix for safari gap */
+            min-height:100px;
+            max-height:250px;
+          }
+        
+          .parallax > use {
+            animation: move-forever 25s cubic-bezier(.55,.5,.45,.5)     infinite;
+          }
+          .parallax > use:nth-child(1) {
+            animation-delay: -2s;
+            animation-duration: 7s;
+          }
+          .parallax > use:nth-child(2) {
+            animation-delay: -3s;
+            animation-duration: 10s;
+          }
+          .parallax > use:nth-child(3) {
+            animation-delay: -4s;
+            animation-duration: 13s;
+          }
+          .parallax > use:nth-child(4) {
+            animation-delay: -5s;
+            animation-duration: 20s;
+          }
+          @keyframes move-forever {
+            0% {
+             transform: translate3d(-90px,0,0);
+            }
+            100% { 
+              transform: translate3d(85px,0,0);
+            }
+          }
+          /*Shrinking for mobile*/
+          @media (max-width: 768px) {
+            .waves {
+              height:150px;
+              min-height:40px;
+            }
+            .search__input {
+                width: 10.2rem;
+            }
+          }
+    </style>
+    <script>
+        function searchGoogle() {
+          var query = document.getElementById("searchInput").value;
+          var url = "https://www.google.com/search?q=" + encodeURIComponent(query);
+          window.location.href = url;
+        }
+    </script>
+</head>
+
+<body>
+
+<div class="title">
+    <h1>Ghajini Browser</h1>
+    <h3>I can keep a secret,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cause i will forget Ha! Ha!</h3>
+</div>
+
+<div class="search">
+    <input type="text" class="search__input" placeholder="Search..." id="searchInput">
+    <button onclick="searchGoogle()">Search</button>
+</div>
+
+<div class="waves_wrap">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+    <defs>
+    <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+    </defs>
+    <g class="parallax">
+    <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(102,51,0,0.7" />
+    <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(102,51,0,0.5)" />
+    <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(102,51,0,0.3)" />
+    <use xlink:href="#gentle-wave" x="48" y="7" fill="rgb(102,51,0)" />
+    </g>
+    </svg>
+</div>
+
+</body>
+
+</html>
